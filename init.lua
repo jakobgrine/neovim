@@ -42,8 +42,39 @@ require 'packer'.startup(function()
     'lervag/vimtex',
     ft = 'tex',
     config = function()
-      vim.keymap.set('n', '<Leader>cc', '<Cmd>w<CR> <Plug>(vimtex-compile-ss)')
-      vim.keymap.set('n', '<Leader>mc', '<Cmd>w<CR> <Plug>(vimtex-compile)')
+      -- vim.keymap.set('n', '<Leader>cc', '<Cmd>w<CR> <Plug>(vimtex-compile-ss)')
+      -- vim.keymap.set('n', '<Leader>mc', '<Cmd>w<CR> <Plug>(vimtex-compile)')
+    end
+  }
+
+  use {
+    'williamboman/mason.nvim',
+    config = function()
+      require 'mason'.setup {}
+    end
+  }
+  use {
+    'williamboman/mason-lspconfig.nvim',
+    config = function()
+      require 'mason-lspconfig'.setup {
+        automatic_installation = true
+      }
+    end
+  }
+  use {
+    'neovim/nvim-lspconfig',
+    config = function()
+      require 'lsp'
+    end
+  }
+  use {
+    'folke/trouble.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function()
+      require 'trouble'.setup {
+        auto_open = true,
+        auto_close = true
+      }
     end
   }
 
