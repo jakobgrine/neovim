@@ -46,6 +46,15 @@ require 'packer'.startup(function()
       -- vim.keymap.set('n', '<Leader>mc', '<Cmd>w<CR> <Plug>(vimtex-compile)')
     end
   }
+  use {
+    'preservim/vim-markdown',
+    ft = {'md', 'markdown'},
+    config = function()
+      vim.g.vim_markdown_math = 1
+      vim.opt.conceallevel = 2
+      vim.g.vim_markdown_frontmatter = 1
+    end
+  }
 
   use {
     'williamboman/mason.nvim',
