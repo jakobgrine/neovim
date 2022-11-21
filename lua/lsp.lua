@@ -1,3 +1,3 @@
 local lsp = require 'lspconfig'
 
-lsp.jdtls.setup {}
+-- lsp.jdtls.setup {}
