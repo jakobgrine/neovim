@@ -92,10 +92,7 @@ require 'packer'.startup(function()
     'folke/trouble.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
-      require 'trouble'.setup {
-        auto_open = true,
-        auto_close = true
-      }
+      require 'trouble'.setup {}
     end
   }
 
