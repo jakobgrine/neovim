@@ -57,6 +57,14 @@ require 'packer'.startup(function()
   }
 
   use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = function()
+      require 'treesitter'
+    end
+  }
+
+  use {
     'williamboman/mason.nvim',
     config = function()
       require 'mason'.setup {}
