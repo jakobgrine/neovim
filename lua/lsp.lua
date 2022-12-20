@@ -1,3 +1,8 @@
-local lsp = require 'lspconfig'
+local lsp = require 'lsp-zero'
 
--- lsp.jdtls.setup {}
+lsp.preset 'recommended'
+lsp.setup {}
+
+vim.diagnostic.config {
+  virtual_text = true
+}
