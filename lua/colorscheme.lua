@@ -8,6 +8,8 @@ local transparent_groups = {
   Conceal = {},
   VertSplit = {},
   SignColumn = {},
+  FloatTitle = {},
+  NormalFloat = {},
 }
 for g, o in pairs(transparent_groups) do
   vim.cmd(string.format('hi %s guibg=NONE %s', g, table.concat(o, ' ')))
