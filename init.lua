@@ -95,6 +95,13 @@ require 'packer'.startup(function()
       require 'trouble'.setup {}
     end
   }
+  use {
+    'j-hui/fidget.nvim',
+    tag = 'legacy',
+    config = function()
+      require 'fidget'.setup {}
+    end,
+  }
 
   if packer_bootstrap then
     require 'packer'.sync()
