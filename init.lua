@@ -37,6 +37,28 @@ require 'packer'.startup(function()
   use { 'tpope/vim-dispatch', cmd = { 'Make', 'Dispatch', 'Start', 'Spawn' } }
   use 'dhruvasagar/vim-table-mode'
   use 'ap/vim-css-color'
+  use 'junegunn/fzf'
+  use 'junegunn/fzf.vim'
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function()
+      require 'nvim-tree'.setup {
+        on_attach = function(bufnr)
+          local api = require 'nvim-tree.api'
+          api.config.mappings.default_on_attach(bufnr)
+
+          local function opts(desc)
+            return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+          end
+          vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Close Directory'))
+          vim.keymap.set('n', 'l', api.node.open.edit, opts('Open'))
+        end
+      }
+
+      vim.keymap.set('n', '<Leader>ft', '<Cmd>NvimTreeFocus<CR>')
+    end,
+  }
 
   use {
     'lervag/vimtex',
