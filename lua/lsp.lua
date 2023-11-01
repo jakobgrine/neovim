@@ -11,11 +11,11 @@ lsp.set_preferences {
 }
 
 lsp.on_attach(function(_, bufnr)
-  local opts = {buffer = bufnr, remap = false}
+  local opts = { buffer = bufnr, remap = false }
 
   vim.keymap.set('n', '<Leader>ca', function() vim.lsp.buf.code_action() end, opts)
   vim.keymap.set('n', '<Leader>cr', function() vim.lsp.buf.rename() end, opts)
-  vim.keymap.set({'n', 'v'}, '<Leader>cf', function() vim.lsp.buf.format() end, opts)
+  vim.keymap.set({ 'n', 'v' }, '<Leader>cf', function() vim.lsp.buf.format() end, opts)
 end)
 
 lsp.setup {}

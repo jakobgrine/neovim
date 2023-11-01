@@ -14,9 +14,9 @@ vim.g.maplocalleader = ' '
 vim.keymap.set('n', '<Leader>fs', '<Cmd>w<CR>')
 
 local ensure_packer = function()
-  local install_path = vim.fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
   if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    vim.fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
     vim.cmd [[packadd packer.nvim]]
     return true
   end
@@ -27,14 +27,14 @@ local packer_bootstrap = ensure_packer()
 require 'packer'.startup(function()
   use 'wbthomason/packer.nvim'
 
-  use {'morhetz/gruvbox', config = function() require 'colorscheme' end}
+  use { 'morhetz/gruvbox', config = function() require 'colorscheme' end }
 
   use 'tpope/vim-surround'
   use 'tpope/vim-repeat'
   use 'tpope/vim-sleuth'
-  use {'tpope/vim-commentary', keys = {'gc', 'gcc', 'gcu'}}
-  use {'tpope/vim-vinegar', keys = '-'}
-  use {'tpope/vim-dispatch', cmd = {'Make', 'Dispatch', 'Start', 'Spawn'}}
+  use { 'tpope/vim-commentary', keys = { 'gc', 'gcc', 'gcu' } }
+  use { 'tpope/vim-vinegar', keys = '-' }
+  use { 'tpope/vim-dispatch', cmd = { 'Make', 'Dispatch', 'Start', 'Spawn' } }
   use 'dhruvasagar/vim-table-mode'
   use 'ap/vim-css-color'
 
@@ -48,7 +48,7 @@ require 'packer'.startup(function()
   }
   use {
     'preservim/vim-markdown',
-    ft = {'md', 'markdown'},
+    ft = { 'md', 'markdown' },
     config = function()
       vim.g.vim_markdown_math = 1
       vim.opt.conceallevel = 2
